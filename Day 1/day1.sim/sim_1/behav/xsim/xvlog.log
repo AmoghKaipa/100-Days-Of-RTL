@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Amogh Kaipa/Amogh/Placement/System Verilog/100 Days of RTL/day1/2to1mux.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux2to1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Amogh Kaipa/Amogh/Placement/System Verilog/100 Days of RTL/day1/mux_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Amogh Kaipa/Amogh/Placement/System Verilog/100 Days of RTL/day1/day1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
