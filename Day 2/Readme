@@ -1,0 +1,4 @@
+This program explores different types of D-FF. They are:
+1) D-FF with no reset
+2) D-FF with synchronous reset
+3) D-FF with asynchronous reset
