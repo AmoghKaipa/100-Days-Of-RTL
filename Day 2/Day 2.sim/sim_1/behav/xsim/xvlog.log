@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 2/d_ff.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module d_ff
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 2/Day 2.srcs/sim_1/new/d_ff_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module d_ff_tb
