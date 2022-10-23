@@ -19,14 +19,13 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module d_ff_tb;
 
-reg clk = 0;
+reg clk = 1;
 reg reset = 0;
 logic q_no_rst, q_syn_rst, q_asyn_rst, d_i;
 
-d_ff uut(.*);
+d_ff day2(.*);
 always #20 clk = ~clk;
 
 initial begin
@@ -47,3 +46,5 @@ initial begin
 end
 
 endmodule
+
+
