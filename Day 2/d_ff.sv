@@ -27,6 +27,8 @@ module d_ff(input logic d_i,
     output logic q_syn_rst,
      output logic q_asyn_rst);
 
+
+
 always_ff @(posedge clk) begin
     q_no_rst <= d_i;
 end
