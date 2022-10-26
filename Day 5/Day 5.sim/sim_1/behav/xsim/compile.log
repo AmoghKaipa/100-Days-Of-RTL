@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Amogh Kaipa/Amogh/Placement/System Verilog/100 Days of RTL/Day 5/day_5.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module day_5
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Amogh Kaipa/Amogh/Placement/System Verilog/100 Days of RTL/Day 5/day_5_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module day_5_tb
