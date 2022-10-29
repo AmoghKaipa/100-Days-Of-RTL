@@ -20,7 +20,35 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module day_11_tb(
+module day_11_tb;
 
-    );
+reg clk, reset;
+reg x_i, det_o;
+
+day_12 Day_12 (.*);
+
+initial clk <=1'b0;
+
+always #10 clk = ~clk;
+
+logic [11:0] seq = 12'b1110_1101_1011;
+
+initial begin
+
+    @(posedge clk);
+    reset = 1'b1;
+    @(posedge clk);
+    reset = 1'b0;
+    for (int i=11; i>=0; i=i-1) begin
+      x_i <= seq[i];
+      @(posedge clk);
+    end
+    for (int i=0; i<12; i=i+1) begin
+      x_i <= $random%2;
+      @(posedge clk);
+    end
+    $finish();
+
+end
+
 endmodule

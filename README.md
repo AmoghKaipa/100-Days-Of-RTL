@@ -14,4 +14,4 @@ Day 8 : Design and verify a parameterized binary to one-hot converter
 Day 9 : Design and verify a parameterized binary to gray code converter
 Day 10 : Design and verify a counter which supports loading a value
 Day 11 : Design and verify a 4-bit parallel to serial converter with valid and empty indications
-Day 12 : Design and verify a sequence detector to detect the following sequence: 1110_1101_1011 
+Day 12 : Design and verify a sequence detector to detect the following sequence: 1110_1101_1011

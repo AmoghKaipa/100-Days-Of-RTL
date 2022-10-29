@@ -28,11 +28,21 @@ module day_12(input     wire        clk,
               input     wire        x_i, //serial input
               output    wire        det_o // Output asserted when sequence is detected
              );
-             
+reg [11:0] seq = 12'b1110_1101_1011;   
+reg [11:0] state, next_state;      
 always @(posedge clk or posedge reset) begin
 
+    if (reset) begin
+        state <=12'h0;
+    end
+    else begin
     
+        state <= next_state;       
+    
+    end 
 
-end             
+end   
 
+assign next_state = {state[10:0], x_i};           
+assign det_o = (seq == state)? 1:0;
 endmodule
