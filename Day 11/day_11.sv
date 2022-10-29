@@ -41,11 +41,11 @@ always_ff @(posedge clk or posedge reset) begin
         count_ff <= 3'h0;
     
     end
-        
+
     else begin
         
         state <= next_state;
-        count_ff <= next_count;
+        count_ff <= next_count; // Counter to keep track of valid_o and empty_o
         
     end
     
@@ -53,10 +53,10 @@ always_ff @(posedge clk or posedge reset) begin
 end
 
     
-    assign next_state = empty_o? parallel_i : {1'b0, state[3:1]};
-    assign serial_o = state[0];
+    assign next_state = empty_o? parallel_i : {1'b0, state[3:1]}; // To find the next state
+    assign serial_o = state[0]; // To find the serial output
     
-    assign next_count = (count_ff == 3'h4)? 3'h0 : count_ff + 3'h1; 
+    assign next_count = (count_ff == 3'h4)? 3'h0 : count_ff + 3'h1;  
     assign valid_o = (count_ff>0)? 1:0;
     assign empty_o = (count_ff == 3'h0);
     
