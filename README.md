@@ -27,4 +27,4 @@ Day 11 : Design and verify a 4-bit parallel to serial converter with valid and e
 
 Day 12 : Design and verify a sequence detector to detect the following sequence: 1110_1101_1011
 
-Day 13 : 
+Day 13 : Design a mux using different language constructs
