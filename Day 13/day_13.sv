@@ -32,7 +32,7 @@ module day_13(input     logic[3:0] a_i,
               input     logic[3:0] sel_i,
 
               // Output using ternary operator
-              output    wire     y_ter_o,
+              output    logic     y_ter_o,
               // Output using case
               output    logic     y_case_o,
               // Ouput using if-else
@@ -42,10 +42,10 @@ module day_13(input     logic[3:0] a_i,
               // Output using and-or tree
               output    logic     y_aor_o
               );
-assign y_ter_o = sel_i[4'b0001] ? a_i[0] :
-                 sel_i[4'b0010] ? a_i[1] :
-                 sel_i[4'b0100] ? a_i[2] :
-                 a_i[3] ;
+assign y_ter_o = sel_i[0] ? a_i[0] :
+                 sel_i[1] ? a_i[1] :
+                 sel_i[2] ? a_i[2] :
+                            a_i[3] ;
                  
 always_comb begin
     case (sel_i)
