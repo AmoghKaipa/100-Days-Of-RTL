@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 /*
-About Priority Arbiter.
+About Arbiter:
 An Arbiter provides or grants access to the Resource when there are multiple requests. It can be of 2 types:
 1. Priority Arbiter
 2. Round Robin Arbiter
