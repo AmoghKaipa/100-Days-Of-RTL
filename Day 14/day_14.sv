@@ -16,6 +16,6 @@ assign gnt_o[0] = req_i[0]; // req_i[0] has the highest priority
 
 genvar i;
 for(i = 1; i < no_of_ports; i = i+1) begin
-    assign gnt_o[i] = req_i[i] & ~(|req_i[i-1:0]);
+    assign gnt_o[i] = req_i[i] & ~(|req_i[i-1:0]); // | is a reduction or operator Ex. |(1001) = 1|0|0|1 = 1
 end 
 endmodule
