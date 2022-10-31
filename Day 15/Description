@@ -1,0 +1,5 @@
+// Priority arbiter without starvation
+// Arbiter grants access to the device with the highest priority for a clock cycle. 
+// But, if the same device was granted access in the previous clock cycle, 
+// the device with the next priority is given access in the present clock cycle
+// Day 14 module is also used here to find out the grant signal based on the priority
