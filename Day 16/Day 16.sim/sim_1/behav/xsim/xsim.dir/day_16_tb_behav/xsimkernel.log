@@ -1,0 +1,4 @@
+Running: xsim.dir/day_16_tb_behav/xsimk.exe -simmode gui -wdb day_16_tb_behav.wdb -simrunnum 0 -socket 50286
+Design successfully loaded
+Design Loading Memory Usage: 10464 KB (Peak: 10464 KB)
+Design Loading CPU Usage: 30 ms

@@ -15,7 +15,22 @@ presetn
 psel[n-1:0] - selects which slave this transaction is meant to be
 penable - always asseretd after one clock cycle after psel signal. This is needed because most of the SoCs uses clock gating and the it will be in low power mode when it is not on. 
 pwrite - 0-> read from slave 1-> write from slave
-pwdata - 
-prdata - 
+paddr -> To which address you want to write request to.
+pwdata 
+prdata  
 pready - Indicates that slave is ready to accept the transaction.
 pslverr - Tells that transaction coudnt be processed by the slave and it raised an err s/g and trasnaction needs to be reinitiated. This is usually due to a security issue.
+
+The txn is completed only preay is asserted.
+pslverr can be asserted only when pready is asserted.
+
+
+States of the protocol:
+
+1. IDLE - nothing is active. no transaction. psel = 0, penalbe = 0
+2. SETUP - when we want to initiate a txn. psel = 1 and penale = 0. Protocaol can be in Setup state only for one clk cycle. Else it is a violation of the protocol.
+3. ACCESS - psel = 1, penable = 1; It will remain in access state till pready = 1. Here, pwrite, pwdata, prdata is stable. 
+From access state, we can go to IDLE or SETUP state.
+
+
+In case of violation, slave behaves in an awkward manner. This happens when Data/address s/g changes during access phase. This is a common problem is SoC. It leads to timing problem.
