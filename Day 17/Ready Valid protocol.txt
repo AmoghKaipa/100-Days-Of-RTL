@@ -1,0 +1,22 @@
+Ready/Valid Protocol
+
+* The ready/valid hardware data transfer protocol is simple and ingenious, providing flow control with only two control signals. 
+
+* It is a stateless protocol.
+
+* Both parties must operate synchronously and read the control signals on the same clock edge.
+
+* It is an ubiquitos(Widely used) protocol commonly used between a transmitter and a receiver.
+* This protocol is used when there are two components communicating, say Transmitter and Receiver in a unidirectional manner (Data transfer can happen only from Tx to Rx).
+* The Transmitter issues a Valid s/g to the receiver when it is ready to transmit.
+* The Receiver issues a Ready s/g to the transmitter when it is ready to receive.
+* The data from the transmitter is transmitted only when both the Tx's and the Rx's Valid and Ready bit respectively are 1 and 1.
+
+According to the AMBA Specification, section A.3.2.1, there are two rules governing ready/valid behavior:
+
+* A transmitter is not permitted to wait until READY is asserted before asserting VALID.
+* Once VALID is asserted it must remain asserted until the handshake occurs, at a rising clock edge at which VALID and READY are both asserted.
+
+
+MASTER - Issues the  valid signal
+SKAVE - Issues the Ready signal

@@ -30,3 +30,7 @@ Day 12 : Design and verify a sequence detector to detect the following sequence:
 Day 13 : Design a mux using different language constructs
 
 Day 14 : Design a parameterized priority arbiter
+
+Day 15 : Design a parameterized priority arbiter without starvation
+
+Day 16 : Design a

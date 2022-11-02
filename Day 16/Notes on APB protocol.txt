@@ -2,7 +2,7 @@ APB - Advanced Peripheral Bus Protocol.
 
 * It is a simple protocol for transaction between master and slave
 * It is a Non-pipeline protocol -> Once a transaction is initiated, all signals(control and data signals) related to a transaction from the master should remain stable till the slave accepts the transaction.
-* It is used in SoC's. processors, N/Wing chips.
+* It is used in SoC's, processors, N/Wing chips.
 * Used for simple requiremens like reading/writing from slave.
 * It consumes less area and less power.
 * Debug processes uses APB protocol.
