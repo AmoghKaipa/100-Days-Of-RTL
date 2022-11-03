@@ -26,8 +26,9 @@ module day_17(
 `endif
 
 logic r, w;
-logic rising_edge, lfsr_count;
-logic[3:0] count_ff, next_count, count;
+logic rising_edge;
+logic[3:0] count_ff, next_count, count, lfsr_count;
+
 day_3 Day_3(.clk(clk), .reset(reset), .d_in(req_i), .pos_edge(rising_edge), .pos_edge());
 
 always_ff @(posedge clk or posedge reset) begin
@@ -45,7 +46,7 @@ assign r = req_i & req_rnw_i;
 assign w = req_i & ~req_rnw_i;
 assign count = count_ff;
 
-always @(posedge clk) begin
+always_ff @(posedge clk) begin
     if(~|count & w)
     mem[req_addr_i] <=req_wdata_i;
 end

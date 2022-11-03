@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../../day_17.sv" \
+"../../../../../Day 3/day_3.sv" \
+"../../../../../Day 7/day_7.sv" \
+"../../../../day_17_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
