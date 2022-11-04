@@ -3,7 +3,14 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 6e418e686d36417b916edbd34b274bf6 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot day_17_tb_behav xil_defaultlib.day_17_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-1233] port pos_edge is already connected [C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 17/day_17.sv:32]
-WARNING: [VRFC 10-278] actual bit length 10 differs from formal bit length 4 for port req_addr_i [C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 17/day_17_tb.sv:17]
+WARNING: [VRFC 10-278] actual bit length 10 differs from formal bit length 4 for port req_addr_i [C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 17/day_17_tb.sv:19]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.day_3
+Compiling module xil_defaultlib.day_7
+Compiling module xil_defaultlib.day_17
+Compiling module xil_defaultlib.day_17_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot day_17_tb_behav

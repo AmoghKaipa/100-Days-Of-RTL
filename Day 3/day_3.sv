@@ -1,43 +1,29 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/23/2022 10:10:33 PM
-// Design Name: 
-// Module Name: day_3
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+ // An edge detector
 
 
-module day_3(
-    input wire clk,
-    input wire d_in,
-    input wire reset,
-    output wire pos_edge,
-    output wire neg_edge
-    );
-    logic d_delayed;
-    always_ff @(posedge clk or posedge reset) begin
-        if(reset) begin
-            d_delayed <= 1'b0;
-        end
-        else begin
-            d_delayed <= d_in;
-        end
-    end
-    
-    assign pos_edge = d_in & ~d_delayed;
-    assign neg_edge = ~d_in & d_delayed;
-    
+module day_3 (
+ input     wire    clk,
+ input     wire    reset,
+
+ input     wire    a_i,
+
+ output    wire    rising_edge_o,
+ output    wire    falling_edge_o
+);
+
+ logic a_ff;
+
+ always_ff @(posedge clk or posedge reset)
+   if (reset)
+     a_ff <= 1'b0;
+   else
+     a_ff <= a_i;
+
+ // Rising edge when delayed signal is 0 but current is 1
+ assign rising_edge_o = ~a_ff & a_i;
+
+ // Falling edge when delayed signal is 1 but current is 0
+ assign falling_edge_o = a_ff & ~a_i;
+
 endmodule

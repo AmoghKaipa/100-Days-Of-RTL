@@ -6,10 +6,21 @@ The interface should be able to generate the ready output after a random delay. 
 Valid/ready protocol must be honoured
 */
 
+// A memory interface
 
-module day_17(
+/*
+On the rising edge of valid_i / req_i, generate a random value using day_7 LFSR module.
+Rising edge of valid_i / req_i is detected using day_3 module.
+This is to generate the ready_o after a random delay. 
+After random value is generated, it counts by 1 every positive clock cycle. 
+As soon as the count reaches to 0, the ready_o is made logic 1 and data is written into memory if write s/g is high.
+It reads from the memory when read s/g is valid.
+*/
+
+module day_17 (
   input       wire        clk,
   input       wire        reset,
+
   input       wire        req_i,
   input       wire        req_rnw_i,    // 1 - read, 0 - write
   input       wire[3:0]   req_addr_i,
@@ -18,45 +29,65 @@ module day_17(
   output      wire[31:0]  req_rdata_o
 );
 
-// Memory array
+  // Memory array
 `ifdef FORMAL
   logic [31:0] mem[15:0];
 `else
   logic [15:0][31:0] mem;
 `endif
 
-logic r, w;
-logic rising_edge;
-logic[3:0] count_ff, next_count, count, lfsr_count;
+  logic mem_rd;
+  logic mem_wr;
 
-day_3 Day_3(.clk(clk), .reset(reset), .d_in(req_i), .pos_edge(rising_edge), .pos_edge());
+  logic req_rising_edge;
 
-always_ff @(posedge clk or posedge reset) begin
-    if(reset)
-        count_ff <= 4'h0;
+  logic [3:0] lfsr_val;
+  logic [3:0] count;
+
+  assign mem_rd = req_i &  req_rnw_i;
+  assign mem_wr = req_i & ~req_rnw_i;
+
+  // Detect a rising edge on the req_i
+  day_3 DAY3 (
+    .clk            (clk),
+    .reset          (reset),
+    .a_i            (req_i),
+    .rising_edge_o  (req_rising_edge),
+    .falling_edge_o (/* Not needed */)
+  );
+
+  // Load a counter with random value on the rising edge
+  logic[3:0] count_ff;
+  logic[3:0] nxt_count;
+
+  always_ff @(posedge clk or posedge reset)
+    if (reset)
+      count_ff <= 4'h0;
     else
-        count_ff <= next_count;
-end
+      count_ff <= nxt_count;
 
-day_7 Day_7(.clk(clk), .reset(reset), .lfsr_o(lfsr_count));
+  assign nxt_count = req_rising_edge ? lfsr_val:
+                                       count_ff + 4'h1;
 
-assign next_count = rising_edge? lfsr_count : count_ff+4'h1 ;
+  assign count = count_ff;
 
-assign r = req_i & req_rnw_i;
-assign w = req_i & ~req_rnw_i;
-assign count = count_ff;
+  // Generate a random load value
+  day_7 DAY7 (
+    .clk            (clk),
+    .reset          (reset),
+    .lfsr_o         (lfsr_val)
+  );
 
-always_ff @(posedge clk) begin
-    if(~|count & w)
-    mem[req_addr_i] <=req_wdata_i;
-end
+  // Write into the mem when the counter is 0
+  always_ff @(posedge clk)
+    if (mem_wr & ~|count)
+      mem[req_addr_i] <= req_wdata_i;
 
-assign req_rdata_o = mem[req_addr_i] & {32{r}};
+  // Read directly
+  assign req_rdata_o = mem[req_addr_i] & {32{mem_rd}};
 
-// Assert ready only when count = 0. This is asserted after a random value.
-
-assign req_ready_o = (~|count);
-
-
+  // Assert ready only when counter is at 0
+  // This will add random delays on when memory gives the ready
+  assign req_ready_o = ~|count;
 
 endmodule

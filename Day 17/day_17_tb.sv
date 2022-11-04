@@ -2,6 +2,8 @@
 
 // Memry TB
 
+// Memry TB
+
 module day_17_tb ();
 
   logic        clk;
@@ -14,7 +16,7 @@ module day_17_tb ();
   logic[31:0]  req_rdata_o;
 
   // Instatiate the RTL
-  day_17 Day17(.*);
+  day_17 DAY17 (.*);
 
   logic [9:0] [9:0] addr_list;
 
