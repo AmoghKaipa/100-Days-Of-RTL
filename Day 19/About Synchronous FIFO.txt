@@ -1,0 +1,14 @@
+* In synchronous FIFO, read and write operations take place at the same rate, 
+i.e., read and the write operations are synchronized using the same clock
+* Operations performed are:
+	-> Write operation - Push data to the FIFO till it is FULL
+	-> Read operation - POP data from the FIFO till it is empty
+* Pointers to control operations:
+	-> Write Pointer: Points to the FIFO memory location where the data will be written.
+	-> Read pointer: Points to the location from where next data is to be read.
+* Flags in FIFO;
+	-> FULL
+	-> EMPTY
+* COUNT will count the total number of words in the FIFO. 
+* On the basis of value of count the flag logic will assign values to flags. 
+* If the count reaches a value equal to the size of FIFO it will assign FULL flag as logic high and if the count becomes zero it will assign EMPTY flag as logic high.
