@@ -1,0 +1,27 @@
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 557c1eb4cd0d42dc95363d41f5f1ad8e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot day_20_behav xil_defaultlib.day_20 xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 10 differs from formal bit length 4 for port req_addr_i [C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/100DaysOfRTL-main/day18/day18.sv:27]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/100DaysOfRTL-main/day14/day14.sv" Line 4. Module day14(NUM_PORTS=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/100DaysOfRTL-main/day19/day19.sv" Line 3. Module day19(DEPTH=16,DATA_W=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/100DaysOfRTL-main/day16/day16.sv" Line 8. Module day16 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/100DaysOfRTL-main/day18/day18.sv" Line 3. Module day18 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/100DaysOfRTL-main/day17/day17.sv" Line 3. Module day17 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/day3/day3.sv" Line 4. Module day3 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/Amogh Kaipa/Documents/GitHub/100-Days-of-RTL/Day 20/Day 20.srcs/sources_1/imports/day7/day7.sv" Line 2. Module day7 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.day14(NUM_PORTS=2)
+Compiling module xil_defaultlib.day19(DEPTH=16,DATA_W=2)
+Compiling module xil_defaultlib.day16
+Compiling module xil_defaultlib.day3
+Compiling module xil_defaultlib.day7
+Compiling module xil_defaultlib.day17
+Compiling module xil_defaultlib.day18
+Compiling module xil_defaultlib.day_20
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot day_20_behav
